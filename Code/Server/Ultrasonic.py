@@ -40,27 +40,36 @@ class Ultrasonic:
         return int(distance_cm[2])
 
     def run_motor(self, L, M, R):
-        if (L < 30 and M < 30 and R < 30) or M < 30:
+        if (L < 40 and M < 40 and R < 40) or M < 40:
             self.PWM.setMotorModel(-1000, -1000, -1000, -1000)
             time.sleep(0.1)
             if L < R:
                 self.PWM.setMotorModel(1000, 1000, -1000, -1000)
+                time.sleep(0.1)
             else:
                 self.PWM.setMotorModel(-1000, -1000, 1000, 1000)
-        elif L < 30 and M < 30:
+                time.sleep(0.1)
+        elif L < 40 and M < 40:
             PWM.setMotorModel(1500, 1500, -1500, -1500)
-        elif R < 30 and M < 30:
+            time.sleep(0.1)
+        elif R < 40 and M < 40:
             PWM.setMotorModel(-1500, -1500, 1500, 1500)
-        elif L < 20:
+            time.sleep(0.1)
+        elif L < 30:
             PWM.setMotorModel(1500, 1500, -500, -500)
-            if L < 10:
+            time.sleep(0.1)
+            if L < 20:
                 PWM.setMotorModel(1500, 1500, -1000, -1000)
-        elif R < 20:
+                time.sleep(0.1)
+        elif R < 30:
             PWM.setMotorModel(-500, -500, 1500, 1500)
-            if R < 10:
+            time.sleep(0.1)
+            if R < 20:
                 PWM.setMotorModel(-1000, -1000, 1000, 1000)
+                time.sleep(0.1)
         else:
             self.PWM.setMotorModel(600, 600, 600, 600)
+            time.sleep(0.1)
 
     def run(self):
         self.PWM = Motor()
@@ -71,7 +80,7 @@ class Ultrasonic:
             time.sleep(0.1)
             M = self.get_distance()
 
-            if M < 30:
+            if M < 40:
                 self.pwm_S.setServoPwm("0", 30)
                 time.sleep(0.2)
                 L = self.get_distance()
@@ -81,7 +90,7 @@ class Ultrasonic:
                 self.run_motor(L, M, R)
                 self.pwm_S.setServoPwm("0", 90)
             else:
-                self.run_motor(20, M, 20)
+                self.run_motor(30, M, 30)
 
     def run0(self):
         self.PWM = Motor()
