@@ -131,8 +131,7 @@ ultrasonic = Ultrasonic()
 if __name__ == '__main__':
     print('Program is starting ... ')
     try:
-        # ultrasonic.run()
-        ultrasonic.run0()
+        ultrasonic.run()
     except KeyboardInterrupt:  # When 'Ctrl+C' is pressed, the child program destroy() will be  executed.
         PWM.setMotorModel(0, 0, 0, 0)
         ultrasonic.pwm_S.setServoPwm('0', 90)
