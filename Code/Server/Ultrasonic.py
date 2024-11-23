@@ -49,18 +49,25 @@ class Ultrasonic:
                 self.PWM.setMotorModel(-1000, -1000, 1000, 1000)
         elif L < 30 and M < 30:
             PWM.setMotorModel(1500, 1500, -1500, -1500)
+            time.sleep(0.1)
         elif R < 30 and M < 30:
             PWM.setMotorModel(-1500, -1500, 1500, 1500)
+            time.sleep(0.1)
         elif L < 20:
             PWM.setMotorModel(1500, 1500, -500, -500)
+            time.sleep(0.1)
             if L < 10:
                 PWM.setMotorModel(1500, 1500, -1000, -1000)
+                time.sleep(0.1)
         elif R < 20:
             PWM.setMotorModel(-500, -500, 1500, 1500)
+            time.sleep(0.1)
             if R < 10:
                 PWM.setMotorModel(-1000, -1000, 1000, 1000)
+                time.sleep(0.1)
         else:
             self.PWM.setMotorModel(600, 600, 600, 600)
+            time.sleep(0.1)
 
     def run(self):
         self.PWM = Motor()
@@ -124,7 +131,8 @@ ultrasonic = Ultrasonic()
 if __name__ == '__main__':
     print('Program is starting ... ')
     try:
-        ultrasonic.run()
+        # ultrasonic.run()
+        ultrasonic.run0()
     except KeyboardInterrupt:  # When 'Ctrl+C' is pressed, the child program destroy() will be  executed.
         PWM.setMotorModel(0, 0, 0, 0)
         ultrasonic.pwm_S.setServoPwm('0', 90)
