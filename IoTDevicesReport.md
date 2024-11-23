@@ -1,4 +1,4 @@
-[200~# IoT Devices Report
+# IoT Devices Report
 
 ### Links to Items
 - [CanaKit Raspberry Pi 4 4GB Starter Kit](https://www.amazon.com/dp/B07V5JTMV9?ref=ppx_yo2ov_dt_b_fed_asin_title&th=1)
