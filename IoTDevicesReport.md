@@ -33,4 +33,10 @@
 - Interesting and fun to work on problems that involve both hardware and software
 
 ### Videos
-- Obstacle avoidance demo video
+- [Obstacle avoidance demo video](https://www.youtube.com/shorts/uWzBbY8WY-g)
+
+### Next Steps
+- I'd like to keep working on the things listed in the course appendices
+	- More advanced obstacle avoidance
+	- Simultaneous Localization and Mapping
+	- Incorporating the camera with TensorFlow, OpenCV, etc.
