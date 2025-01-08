@@ -38,6 +38,19 @@ class RemoteControl:
             while True:
                 data = client_sock.recv(size)
                 if data:
+                    match (data):
+                        case "w":
+                            print("Go forward...")
+                        case "a":
+                            print("Turn left...")
+                        case "s":
+                            print("Reverse...")
+                        case "d":
+                            print("Turn right...")
+                        case _:
+                            print("Unrecognized instruction.")
+
+
                     print("Received: ", data.decode("utf-8"))
                     client_sock.send(data) # Echo back the received data
         except Exception as e:
