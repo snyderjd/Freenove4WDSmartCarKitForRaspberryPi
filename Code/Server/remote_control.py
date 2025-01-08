@@ -39,13 +39,13 @@ class RemoteControl:
                 data = client_sock.recv(size)
                 if data:
                     match (data):
-                        case "w":
+                        case ('w'):
                             print("Go forward...")
-                        case "a":
+                        case ('a'):
                             print("Turn left...")
-                        case "s":
+                        case ('s'):
                             print("Reverse...")
-                        case "d":
+                        case ('d'):
                             print("Turn right...")
                         case _:
                             print("Unrecognized instruction.")
