@@ -38,9 +38,9 @@ class RemoteControl:
             while True:
                 data = client_sock.recv(size)
                 if data:
-                    print(f"data: {data}")
+                    message = data.decode("utf-8")
 
-                    match (data):
+                    match (message):
                         case ('w'):
                             print("Go forward...")
                         case ('a'):
@@ -53,7 +53,7 @@ class RemoteControl:
                             print("Unrecognized instruction.")
 
 
-                    print("Received: ", data.decode("utf-8"))
+                    print(f"Received: {message}")
                     client_sock.send(data) # Echo back the received data
         except Exception as e:
             print(f"Error: {e}")
