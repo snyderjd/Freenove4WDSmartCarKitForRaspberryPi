@@ -38,6 +38,8 @@ class RemoteControl:
             while True:
                 data = client_sock.recv(size)
                 if data:
+                    print(f"data: {data}")
+
                     match (data):
                         case ('w'):
                             print("Go forward...")
