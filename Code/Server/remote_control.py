@@ -47,18 +47,22 @@ class RemoteControl:
                             print("Going forward...")
                             self.PWM.setMotorModel(1000, 1000, 1000, 1000)
                             time.sleep(1)
+                            self.PWM.setMotorModel(0, 0, 0, 0)
                         case ('a'):
                             print("Turning left...")
                             self.PWM.setMotorModel(-1500, -1500, 2000, 2000)
                             time.sleep(1)
+                            self.PWM.setMotorModel(0, 0, 0, 0)
                         case ('d'):
                             print("Turning right...")
                             self.PWM.setMotorModel(2000, 2000, -1500, -1500)
                             time.sleep(1)
+                            self.PWM.setMotorModel(0, 0, 0, 0)
                         case ('s'):
                             print("Reversing...")
                             self.PWM.setMotorModel(-1000, -1000, -1000, -1000)
                             time.sleep(1)
+                            self.PWM.setMotorModel(0, 0, 0, 0)
                         case _:
                             print("Unrecognized instruction.")
 
