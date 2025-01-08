@@ -17,6 +17,8 @@ class RemoteControl:
         GPIO.setup(self.echo_pin, GPIO.IN)
 
     def open_socket_and_control_car(self):
+        self.PWM = Motor()
+
         # bt_server
         # The address of Raspberry Pi bluetooth adapter on the server. The server might have multiple bluetooth adapters
         hostMACAddress = "D8:3A:DD:70:92:5D"
@@ -42,16 +44,23 @@ class RemoteControl:
 
                     match (message):
                         case ('w'):
-                            print("Go forward...")
+                            print("Going forward...")
+                            self.PWM.setMotorModel(1000, 1000, 1000, 1000)
+                            time.sleep(1)
                         case ('a'):
-                            print("Turn left...")
-                        case ('s'):
-                            print("Reverse...")
+                            print("Turning left...")
+                            self.PWM.setMotorModel(-1500, -1500, 2000, 2000)
+                            time.sleep(1)
                         case ('d'):
-                            print("Turn right...")
+                            print("Turning right...")
+                            self.PWM.setMotorModel(2000, 2000, -1500, -1500)
+                            time.sleep(1)
+                        case ('s'):
+                            print("Reversing...")
+                            self.PWM.setMotorModel(-1000, -1000, -1000, -1000)
+                            time.sleep(1)
                         case _:
                             print("Unrecognized instruction.")
-
 
                     print(f"Received: {message}")
                     client_sock.send(data) # Echo back the received data
