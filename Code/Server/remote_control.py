@@ -16,7 +16,7 @@ class RemoteControl:
         GPIO.setup(self.trigger_pin, GPIO.OUT)
         GPIO.setup(self.echo_pin, GPIO.IN)
 
-    def open_socket_and_control_car():
+    def open_socket_and_control_car(self):
         # bt_server
         # The address of Raspberry Pi bluetooth adapter on the server. The server might have multiple bluetooth adapters
         hostMACAddress = "D8:3A:DD:70:92:5D"
